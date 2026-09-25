@@ -10,4 +10,9 @@ mod tests {
     fn test_empty_header() {
         assert_eq!(parse_header(""), "");
     }
+
+    #[test]
+    fn test_h1() {
+        assert_eq!(parse_header("# Hello"), "Hello");
+    }
 }
