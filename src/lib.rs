@@ -13,7 +13,7 @@ mod tests {
     #[test]
     #[wasm_bindgen_test]
     fn test_empty() {
+        assert_eq!(extract_code_blocks("   "), "");
         assert_eq!(extract_code_blocks(""), "");
     }
 }
-
