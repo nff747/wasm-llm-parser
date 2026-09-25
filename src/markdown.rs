@@ -21,3 +21,7 @@ mod tests {
         assert_eq!(parse_header("# Hello"), "Hello");
     }
 }
+
+pub fn parse_bold(input: &str) -> String {
+    String::new()
+}
