@@ -7,7 +7,9 @@ pub fn extract_code_blocks(input: &str) -> String {
     for line in input.lines() {
         if line.starts_with("```") {
             if in_block {
-                result.push('\n');
+                // block ended
+            } else {
+                if !result.is_empty() { result.push('\n'); result.push('\n'); }
             }
             in_block = !in_block;
             continue;
@@ -17,7 +19,7 @@ pub fn extract_code_blocks(input: &str) -> String {
             result.push_str(line);
         }
     }
-    result
+    result.trim().to_string()
 }
 
 #[cfg(test)]
@@ -75,5 +77,5 @@ pub fn parse_think_tags(input: &str) -> String {
             result.push_str(line);
         }
     }
-    result
+    result.trim().to_string()
 }
