@@ -10,7 +10,7 @@ pub fn extract_code_blocks(input: &str) -> String {
             continue;
         }
         if in_block {
-            if !result.is_empty() { result.push('\n'); }
+            if !result.is_empty() && !result.ends_with('\n') { result.push('\n'); }
             result.push_str(line);
         }
     }
