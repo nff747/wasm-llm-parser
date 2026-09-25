@@ -2,7 +2,7 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 pub fn extract_code_blocks(input: &str) -> String {
-    String::new()
+    input.trim().to_string()
 }
 
 #[cfg(test)]
