@@ -1,3 +1,4 @@
+pub mod markdown;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
