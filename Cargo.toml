@@ -4,6 +4,9 @@ version = "0.1.0"
 edition = "2021"
 authors = ["Antigravity <antigravity@example.com>"]
 description = "A tiny Rust->WASM drop-in parser that strips markdown and extracts code blocks for LLMs."
+license = "MIT"
+repository = "https://github.com/nff747/wasm-llm-parser"
+readme = "README.md"
 
 [lib]
 crate-type = ["cdylib", "rlib"]
