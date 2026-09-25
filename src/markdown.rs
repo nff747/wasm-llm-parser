@@ -47,3 +47,7 @@ pub fn parse_bold(input: &str) -> String {
 pub fn parse_italic(input: &str) -> String {
     input.replace("*", "")
 }
+
+pub fn strip_custom_tag_1(input: &str) -> String {
+    String::new()
+}
