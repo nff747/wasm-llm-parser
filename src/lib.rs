@@ -16,4 +16,11 @@ mod tests {
         assert_eq!(extract_code_blocks("   "), "");
         assert_eq!(extract_code_blocks(""), "");
     }
+
+    #[test]
+    #[wasm_bindgen_test]
+    fn test_single_block() {
+        let input = "```rust\nfn main() {}\n```";
+        assert_eq!(extract_code_blocks(input), "fn main() {}");
+    }
 }
