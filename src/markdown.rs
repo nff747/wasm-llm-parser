@@ -181,6 +181,12 @@ mod tests {
     }
 
     #[test]
+    #[test]
+    fn test_strip_custom_tag_27() {
+        assert_eq!(strip_custom_tag_27("<tag27>text</tag27>"), "text");
+    }
+
+    #[test]
     fn test_italic_basic() {
         assert_eq!(parse_italic("*italic*"), "italic");
     }
