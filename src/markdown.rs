@@ -1,5 +1,5 @@
 pub fn parse_header(input: &str) -> String {
-    input.trim().to_string()
+    input.trim_start_matches('#').trim().to_string()
 }
 
 #[cfg(test)]
