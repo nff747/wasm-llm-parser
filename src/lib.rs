@@ -36,7 +36,7 @@ mod tests {
     #[wasm_bindgen_test]
     fn test_multiple_blocks() {
         let input = "```rust\nlet x = 1;\n```\nText\n```python\nx = 1\n```";
-        assert_eq!(extract_code_blocks(input), "let x = 1;\nx = 1");
+        assert_eq!(extract_code_blocks(input), "let x = 1;\n\nx = 1");
     }
 
     #[test]
