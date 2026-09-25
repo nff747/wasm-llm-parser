@@ -24,6 +24,12 @@ mod tests {
     }
 
     #[test]
+    #[test]
+    fn test_italic_basic() {
+        assert_eq!(parse_italic("*italic*"), "italic");
+    }
+
+    #[test]
     fn test_bold_basic() {
         assert_eq!(parse_bold("**bold**"), "bold");
     }
