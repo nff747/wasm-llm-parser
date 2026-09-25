@@ -27,6 +27,13 @@ mod tests {
 
     #[test]
     #[wasm_bindgen_test]
+    fn test_think_tags() {
+        let input = "<think>\nI am thinking\n</think>\nHello";
+        assert_eq!(parse_think_tags(input), "I am thinking");
+    }
+
+    #[test]
+    #[wasm_bindgen_test]
     fn test_empty() {
         assert_eq!(extract_code_blocks("   "), "");
         assert_eq!(extract_code_blocks(""), "");
