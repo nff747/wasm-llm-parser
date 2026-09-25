@@ -32,6 +32,8 @@ mod tests {
     #[test]
     #[wasm_bindgen_test]
     fn test_single_block() {
+        let input = "Some text\n```rust\nlet x = 1;\nlet y = 2;\n```\nMore text";
+        assert_eq!(extract_code_blocks(input), "let x = 1;\nlet y = 2;");
         let input = "```rust\nfn main() {}\n```";
         assert_eq!(extract_code_blocks(input), "fn main() {}");
     }
