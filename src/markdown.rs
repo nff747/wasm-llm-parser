@@ -29,5 +29,5 @@ mod tests {
 }
 
 pub fn parse_bold(input: &str) -> String {
-    String::new()
+    input.replace("**", "")
 }
