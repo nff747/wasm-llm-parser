@@ -37,3 +37,7 @@ mod tests {
 pub fn parse_bold(input: &str) -> String {
     input.replace("**", "")
 }
+
+pub fn parse_italic(input: &str) -> String {
+    String::new()
+}
