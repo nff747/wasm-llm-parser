@@ -6,6 +6,9 @@ pub fn extract_code_blocks(input: &str) -> String {
     let mut in_block = false;
     for line in input.lines() {
         if line.starts_with("```") {
+            if in_block {
+                result.push('\n');
+            }
             in_block = !in_block;
             continue;
         }
