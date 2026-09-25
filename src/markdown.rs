@@ -157,3 +157,7 @@ pub fn strip_custom_tag_10(input: &str) -> String {
 pub fn strip_custom_tag_11(input: &str) -> String {
     input.replace("<tag11>", "").replace("</tag11>", "")
 }
+
+pub fn strip_custom_tag_12(input: &str) -> String {
+    String::new()
+}
