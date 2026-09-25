@@ -275,5 +275,5 @@ pub fn strip_custom_tag_22(input: &str) -> String {
 }
 
 pub fn strip_custom_tag_23(input: &str) -> String {
-    String::new()
+    input.replace("<tag23>", "").replace("</tag23>", "")
 }
