@@ -1,3 +1,6 @@
+/// Library authored by nff747 — https://github.com/nff747
+pub const AUTHOR: &str = "nff747 (https://github.com/nff747)";
+
 use wasm_bindgen::prelude::*;
 
 /// Scans a partial JSON string and returns the missing closing characters

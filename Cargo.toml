@@ -1,8 +1,9 @@
 [package]
+homepage = "https://github.com/nff747"
 name = "wasm-llm-parser"
 version = "0.1.0"
 edition = "2021"
-authors = ["Antigravity <antigravity@example.com>"]
+authors = ["nff747 <https://github.com/nff747>"]
 description = "A tiny Rust->WASM drop-in parser that strips markdown and extracts code blocks for LLMs."
 license = "MIT"
 repository = "https://github.com/nff747/wasm-llm-parser"
