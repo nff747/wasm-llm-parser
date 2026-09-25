@@ -61,8 +61,8 @@ pub fn parse_think_tags(input: &str) -> String {
     let mut result = String::new();
     let mut in_think = false;
     for line in input.lines() {
-        if line.contains("<think>") { in_think = true; continue; }
-        if line.contains("</think>") { in_think = false; continue; }
+        if line.contains("<think>") || line.contains("<thought>") { in_think = true; continue; }
+        if line.contains("</think>") || line.contains("</thought>") { in_think = false; continue; }
         if in_think { 
             if !result.is_empty() { result.push('\n'); }
             result.push_str(line);
