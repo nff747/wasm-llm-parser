@@ -12,6 +12,11 @@ mod tests {
     }
 
     #[test]
+    fn test_h1_h2() {
+        assert_eq!(parse_header("## Hello"), "Hello");
+    }
+
+    #[test]
     fn test_h1() {
         assert_eq!(parse_header("# Hello"), "Hello");
     }
