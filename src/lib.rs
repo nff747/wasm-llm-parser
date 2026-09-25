@@ -4,7 +4,7 @@ use wasm_bindgen::prelude::*;
 /// (e.g., `"]}` or `}`) to make it structurally complete enough to parse.
 #[wasm_bindgen]
 pub fn heal_partial_json(input: &str) -> String {
-    let mut stack = Vec::new();
+    let mut stack = Vec::with_capacity(32);
     let mut in_string = false;
     let mut escape = false;
 
@@ -41,6 +41,9 @@ pub fn heal_partial_json(input: &str) -> String {
 
     let mut missing = String::new();
     if in_string {
+        if escape {
+            missing.push('\"');
+        }
         missing.push('"');
     }
     while let Some(c) = stack.pop() {
