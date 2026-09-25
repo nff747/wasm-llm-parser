@@ -55,5 +55,5 @@ pub fn parse_italic(input: &str) -> String {
 }
 
 pub fn strip_custom_tag_1(input: &str) -> String {
-    String::new()
+    input.replace("<tag1>", "").replace("</tag1>", "")
 }
