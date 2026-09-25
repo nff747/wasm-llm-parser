@@ -45,5 +45,5 @@ pub fn parse_bold(input: &str) -> String {
 }
 
 pub fn parse_italic(input: &str) -> String {
-    String::new()
+    input.replace("*", "")
 }
