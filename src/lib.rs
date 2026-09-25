@@ -48,3 +48,8 @@ mod tests {
         assert_eq!(extract_code_blocks(input), "fn main() {}");
     }
 }
+
+#[wasm_bindgen]
+pub fn parse_think_tags(input: &str) -> String {
+    String::new()
+}
