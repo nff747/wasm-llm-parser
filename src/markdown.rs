@@ -18,6 +18,12 @@ mod tests {
 
     #[test]
     #[test]
+    #[test]
+    fn test_bold_multiple() {
+        assert_eq!(parse_bold("**bold** and **more**"), "bold and more");
+    }
+
+    #[test]
     fn test_bold_basic() {
         assert_eq!(parse_bold("**bold**"), "bold");
     }
