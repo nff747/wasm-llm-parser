@@ -1,5 +1,5 @@
 pub fn parse_header(input: &str) -> String {
-    String::new()
+    input.trim().to_string()
 }
 
 #[cfg(test)]
