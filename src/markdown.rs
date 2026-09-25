@@ -17,6 +17,12 @@ mod tests {
     }
 
     #[test]
+    #[test]
+    fn test_bold_basic() {
+        assert_eq!(parse_bold("**bold**"), "bold");
+    }
+
+    #[test]
     fn test_h1() {
         assert_eq!(parse_header("# Hello"), "Hello");
     }
