@@ -2,7 +2,18 @@ use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
 pub fn extract_code_blocks(input: &str) -> String {
-    input.trim().to_string()
+    let mut result = String::new();
+    let mut in_block = false;
+    for line in input.lines() {
+        if line.starts_with("```") {
+            in_block = !in_block;
+            continue;
+        }
+        if in_block {
+            result.push_str(line);
+        }
+    }
+    result
 }
 
 #[cfg(test)]
