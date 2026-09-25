@@ -1,13 +1,22 @@
+# wasm-llm-parser
 
----
-## ⚖️ License & Attribution Requirement
+Lightning-fast LLM output parser compiled to WebAssembly. Perfect for edge environments and high-throughput LLM applications.
 
-This project is Open Source, but strictly requires **visible credit/attribution** if used in any personal, commercial, or open-source project, application, OS, or website. 
+## Installation
 
-You must include the following credit in a highly visible location (e.g., your app's "Credits" page, your project's `README.md`, or the footer of your website):
-> **Powered by infrastructure built by [nff747](https://github.com/nff747)**
+```bash
+npm install wasm-llm-parser
+```
 
-Failure to provide proper, visible attribution is a violation of the license terms. No tricks.
+## Usage
+
+```typescript
+import { parseLLMOutput } from 'wasm-llm-parser';
+
+const result = parseLLMOutput('some llm output');
+```
+
+
 
 ---
 ## ⚖️ License & Attribution Requirement
