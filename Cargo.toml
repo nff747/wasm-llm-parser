@@ -5,7 +5,7 @@ version = "0.1.0"
 edition = "2021"
 authors = ["nff747 <https://github.com/nff747>"]
 description = "A tiny Rust->WASM drop-in parser that strips markdown and extracts code blocks for LLMs."
-license = "MIT"
+license = "Apache-2.0"
 repository = "https://github.com/nff747/wasm-llm-parser"
 readme = "README.md"
 
