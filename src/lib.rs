@@ -1,4 +1,5 @@
 pub mod markdown;
+pub mod stream;
 use wasm_bindgen::prelude::*;
 
 #[wasm_bindgen]
