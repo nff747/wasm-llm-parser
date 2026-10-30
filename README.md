@@ -1,21 +1,27 @@
 # wasm-llm-parser
 
-Lightning-fast LLM output parser compiled to WebAssembly. Perfect for edge environments and high-throughput LLM applications.
+Experimental Rust/WebAssembly helpers for extracting simple fenced code blocks, thought-tag text, and tracking bracket balance across streamed text chunks.
 
-## Installation
-
-```bash
-npm install wasm-llm-parser
+```sh
+cargo test
+wasm-pack build --target web
 ```
 
-## Usage
+For a web-targeted build, initialize the generated module before using it:
 
-```typescript
-import { parseLLMOutput } from 'wasm-llm-parser';
-
-const result = parseLLMOutput('some llm output');
+```js
+import init, { StreamJsonValidator, extract_code_blocks } from './pkg/wasm_llm_parser.js';
+await init();
+const stream = new StreamJsonValidator();
+stream.feed_chunk('{"items": [1,');
+stream.feed_chunk('2]}');
+console.log(stream.is_balanced());
+stream.free();
+console.log(extract_code_blocks('```js\nconsole.log(1)\n```'));
 ```
 
-## License
+`StreamJsonValidator` checks nesting and quotes only; **balanced brackets do not mean valid JSON**. It does not validate commas, keys, values, escape sequences or UTF-8 byte boundaries. Validate the completed document with a JSON parser before accepting it. An unmatched closing bracket or incorrect nesting permanently marks the stream mismatched. Markdown and tag helpers implement simple extraction, not the full CommonMark or XML specifications. Inspect and sanitize output appropriately before rendering or executing it.
 
-This project is licensed under the [Apache-2.0 License](LICENSE).
+The Rust tests and a local web-targeted WASM build pass; browser and deployment compatibility must be verified in the target environment.
+
+[Apache License 2.0](LICENSE).

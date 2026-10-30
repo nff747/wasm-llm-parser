@@ -9,12 +9,13 @@ pub enum JsonBracketState {
     UnclosedObject,
     UnclosedArray,
     Mismatched,
+    UnclosedString,
 }
 
 #[wasm_bindgen]
 pub struct StreamJsonValidator {
-    depth_brace: i32,
-    depth_bracket: i32,
+    stack: Vec<char>,
+    mismatched: bool,
     in_string: bool,
     is_escaped: bool,
 }
@@ -24,8 +25,8 @@ impl StreamJsonValidator {
     #[wasm_bindgen(constructor)]
     pub fn new() -> Self {
         Self {
-            depth_brace: 0,
-            depth_bracket: 0,
+            stack: Vec::new(),
+            mismatched: false,
             in_string: false,
             is_escaped: false,
         }
@@ -50,17 +51,10 @@ impl StreamJsonValidator {
             }
 
             match ch {
-                '{' => self.depth_brace += 1,
-                '}' => {
-                    if self.depth_brace > 0 {
-                        self.depth_brace -= 1;
-                    }
-                }
-                '[' => self.depth_bracket += 1,
-                ']' => {
-                    if self.depth_bracket > 0 {
-                        self.depth_bracket -= 1;
-                    }
+                '{' | '[' => self.stack.push(ch),
+                '}' | ']' => {
+                    let expected = if ch == '}' { '{' } else { '[' };
+                    if self.stack.pop() != Some(expected) { self.mismatched = true; }
                 }
                 _ => {}
             }
@@ -68,17 +62,21 @@ impl StreamJsonValidator {
     }
 
     pub fn state(&self) -> JsonBracketState {
-        if self.depth_brace > 0 {
+        if self.mismatched {
+            JsonBracketState::Mismatched
+        } else if self.stack.first() == Some(&'{') {
             JsonBracketState::UnclosedObject
-        } else if self.depth_bracket > 0 {
+        } else if self.stack.first() == Some(&'[') {
             JsonBracketState::UnclosedArray
+        } else if self.in_string {
+            JsonBracketState::UnclosedString
         } else {
             JsonBracketState::Balanced
         }
     }
 
     pub fn is_balanced(&self) -> bool {
-        self.depth_brace == 0 && self.depth_bracket == 0 && !self.in_string
+        self.state() == JsonBracketState::Balanced
     }
 }
 
