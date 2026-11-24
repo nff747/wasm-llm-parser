@@ -1,5 +1,7 @@
 # wasm-llm-parser
 
+[![Lunar Paradox](https://img.shields.io/badge/Organization-Lunar_Paradox-0a0e1a?style=for-the-badge&logo=probot&logoColor=d7b886)](https://lunarparadox.com)
+
 Experimental Rust/WebAssembly helpers for extracting simple fenced code blocks, thought-tag text, and tracking bracket balance across streamed text chunks.
 
 ```sh
@@ -25,3 +27,7 @@ console.log(extract_code_blocks('```js\nconsole.log(1)\n```'));
 The Rust tests and a local web-targeted WASM build pass; browser and deployment compatibility must be verified in the target environment.
 
 [Apache License 2.0](LICENSE).
+
+---
+
+*A component of the [Lunar Paradox](https://lunarparadox.com) applied systems & graphics laboratory. Engineered by nff747.*
